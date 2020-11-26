@@ -1,0 +1,97 @@
+<html>
+<head>
+	<!--<link rel="shortcut icon" href="img\opera-multi-size.ico">-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+        <title>**ジュラちゃん**</title>
+</head>
+<body>
+<div id=stripe>
+<div id="Title"> Jurxh Chan uwu </div>
+	<input id="searchbox" placeholder="Options: | -a | -h | -m | -w | -y |" type="text" autofocus="true"  autocomplete="true"></input>
+<div id=mainframe>
+
+	<div id=linkblock style="background-image:url(planet.png)">
+		<ul>
+			<li><a href="https://youtube.com">Youtube</a></li>
+			<li><a href="https://www.github.com">Github</a></li>
+			<li><a href="https://www.gmail.com">Gmail</a></li>
+			<li><a href="https://www.facebook.com">Facebook</a></li>
+			<li><a href="https://twitter.com">Twitter</a></li>
+		</ul>
+	</div>
+	<div id=linkblock style="background-image:url(flowers.png);">
+		<ul>
+			<li><a href="https://boards.4chan.org/b">/b/</a></li>
+			<li><a href="https://boards.4chan.org/biz">/biz/</a></li>
+			<li><a href="https://https://boards.4chan.org/fit">/fit/</a></li>
+			<li><a href="https://https://boards.4chan.org/wg">/wg/</a></li>
+			<li><a href="https://https://boards.4chan.org/wsg">/wsg/</a></li>
+		</ul>
+	</div>
+	<div id=linkblock style="background-image:url(logs.png);">
+		<ul>
+			<li><a href="https://www.reddit.com/r/battlestations/">Battlestations</a></li>
+			<li><a href="https://www.reddit.com/r/ambien">Ambien</a></li>
+			<li><a href="https://www.reddit.com/r/manga">Manga</a></li>
+			<li><a href="https://www.reddit.com/r/ApexLegends">Apex Legends</a></li>
+			<li><a href="https://www.reddit.com/r/traps">Traps</a></li>
+		</ul>
+	</div>
+	<div id=linkblock style="background-image:url(blossom.png);">
+		<ul>
+			<li><a href="https://www.drugs.com">Meds</a></li>
+			<li><a href="https://netflix.com">Netflix</li>
+			<li><a href="https://amazon.com">Amazon</a></li>
+			<li><a href="https://www.ebay.com">Ebay</a></li>
+			<li><a href="https://www.sleepingpillsuk.com">Sleeping Pills</a></li>
+		</ul>
+	</div>
+	<div id=linkblock style="background-image:url(malachite.png);">
+		<ul>
+			<li><a href="http://binance.com">Binance</a></li>
+			<li><a href="https://www.reddit.com/r/Ripple/">XRP</a></li>
+			<li><a href="https://cointelegraph.com/tags/ripple">XRP News</a></li>
+			<li><a href="https://flare.ghost.io/">Flare</a></li>
+			<li><a href="https://www.youtube.com/watch?v=tzBGEqkwCoY">Music For Trading</a></li>
+		</ul>
+	</div>
+	<div id=linkblock style="background-image:url(sway.png);">
+		<ul>
+			<li><a href="http://google.co.uk">Jurxh</a></li>
+			<li><a href="http://www.myanimelist.net">Is</a></li>
+			<li><a href="http://www.theoatmeal.com/">Frickin</li>
+			<li><a href="http://www.oglaf.com/">Cute</a></li>
+			<li><a href="https://xkcd.com"><3</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+<div id=footer>
+	<a href="secondary.html">o</a>
+</div>
+</body>
+<script src="search.js" type="text/javascript"></script>
+<script src="http://inex.ga/homepage/api/js/user"></script>
+<script src="http://inex.ga/homepage/api/js/t"></script>
+<script>
+	if(user.logged === false && confirm('You\'re not logged in. Do it now?')) user.login();
+
+	var current = 0,
+		imgs = ['planet', 'flowers', 'logs', 'blossom', 'malachite', 'sway'];
+	function getImage() {
+		if(current > imgs.length) current = 0;
+		return imgs[++current-1] + '.png';
+	}
+
+	var parent = document.getElementById('mainframe');
+	parent.innerHTML = '';
+	user.getItems(function(title, items) {
+		var html = '<div id="linkblock" style="background-image: url(' + getImage() + ');"><ul>';
+		items.forEach(function(item) {
+			html += t('<li><a href="{url}">{name}</a></li>', {name: item[0], url: item[1] });
+		})
+		html += '</ul></div>';
+		parent.innerHTML += html;
+	})
+</script>
+</html>
